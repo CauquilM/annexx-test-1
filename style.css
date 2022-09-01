@@ -1,0 +1,12 @@
+html, body{
+    margin: 0;
+}
+
+header{
+    text-align: center;
+    background: red;
+}
+
+header > h1 {
+    margin: 0;
+}
