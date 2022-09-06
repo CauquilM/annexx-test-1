@@ -7,91 +7,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Mathieu CAUQUIL" />
     <link rel="stylesheet" href="style.css" />
+    <!-- Image by <a href=" https://www.vectorportal.com" >Vectorportal.com</a>,  <a class="external text" href="https://creativecommons.org/licenses/by/4.0/" >CC BY</a> -->
     <title>Annexx</title>
   </head>
   <body>
     <!-- Header -->
     <header>
-      <h1>Annexx</h1>
-      <!-- <h2>Mon box sécurisé</h2> -->
-
-      <!-- <div id="test">
-        <div id="subheader">
-            <p>Accueil</p>
-            <p>Nos centres</p>
-          </div>
-      </div> -->
+      <img src="./assets/images/padlock.svg" alt="cadenas" width="70px">
+      <div id="header">
+        <h1>Annexx</h1>
+        <h2>Mon box sécurisé</h2>
+      </div>
     </header>
 
-    <div>
+    <!-- Form -->
+    <div id="form-container">
       <h2>
         A la recherche d'une solution de stockage ? Nous avons tout ce qu'il
         vous faut
       </h2>
-    </div>
 
-    <!-- Form -->
-    <div>
       <h3>Trouvez le box le plus proche de chez vous</h3>
-      <form action="">
-        <input
-          id="user-city"
-          type="text"
-          placeholder="Entrez votre code postal"
+      <div id="form">
+        <img
+          id="form-arrow"
+          src="./assets/images/fleche.png"
+          alt="image d'une flèche"
+          width="40px"
         />
-        <button type="submit">Chercher</button>
-      </form>
+        <form action="./api/postal-code.php" method="post">
+          <input
+            type="text"
+            name="postal-code"
+            id="postal-code"
+            placeholder="Tapez votre ville ..."
+          />
+          <button type="submit" id="form-button">Trouver mon box</button>
+        </form>
+      </div>
     </div>
 
-    <!-- First row -->
-    <div class="informations-row">
-      <img
-        id="first-row-img"
-        src="./assets/images/annexx-center.webp"
-        alt="image d'un centre annexx"
-        width="400"
-      />
-      <p>
-        La solution à vos besoins d'espace et de stockage de vos affaires c'est
-        le garde-meubles ou le self-stockage à Toulouse.
-        <br />
-        <br />
-        Dans un garde meubles, vous même ou votre déménageur transporte vos
-        biens et cartons vers un batiment sous surveillance, où vos biens seront
-        stockés dans un box pendant une période déterminée. Dans un garde meuble
-        classique dès que vos affaires sont dans le box, vous ne pouvez plus y
-        accéder jusqu'à la fin de la durée du stockage.
-      </p>
-    </div>
+    <article>
+      <!-- First row -->
+      <div class="informations-row">
+        <img
+          class="img-border"
+          src="./assets/images/annexx-center.webp"
+          alt="image d'un centre annexx"
+          width="400"
+        />
+        <p>
+          La solution à vos besoins d'espace et de stockage de vos affaires
+          c'est le garde-meubles ou le self-stockage à Toulouse.
+          <br />
+          <br />
+          Dans un garde meubles, vous même ou votre déménageur transporte vos
+          biens et cartons vers un batiment sous surveillance, où vos biens
+          seront stockés dans un box pendant une période déterminée. Dans un
+          garde meuble classique dès que vos affaires sont dans le box, vous ne
+          pouvez plus y accéder jusqu'à la fin de la durée du stockage.
+        </p>
+      </div>
 
-    <!-- Second row -->
-    <div class="informations-row">
-      <p>
-        La réponse la plus efficace est la nouvelle génération de garde-meubles:
-        le self stockage. Un box individuel accueille vos biens et vous en avez
-        la clef. L'avantage du self-stockage c'est que quand vous le souhaitez
-        vous pouvez vous rendre à votre box pour ramener ou déposer des meubles
-        et cartons. L'accès est illimité et gratuit, tous les jours. Voici notre
-        sélection de sites toulousains où vous pourrez ranger vos affaires:
-        meubles, matériel ou affaires de sport, cartons. en toute sécurité et
-        flexibilité, puisque vous louez sans aucun engagement de durée, et
-        pourrez partir quand vous le voudrez.
-      </p>
-      <img
-        src="./assets/images/annexx-boxes.webp"
-        alt="images des boxs"
-        width="400"
-      />
-    </div>
+      <!-- Second row -->
+      <div class="informations-row">
+        <p>
+          La réponse la plus efficace est la nouvelle génération de
+          garde-meubles: le self stockage. Un box individuel accueille vos biens
+          et vous en avez la clef. L'avantage du self-stockage c'est que quand
+          vous le souhaitez vous pouvez vous rendre à votre box pour ramener ou
+          déposer des meubles et cartons. L'accès est illimité et gratuit, tous
+          les jours. Voici notre sélection de sites toulousains où vous pourrez
+          ranger vos affaires: meubles, matériel ou affaires de sport, cartons.
+          en toute sécurité et flexibilité, puisque vous louez sans aucun
+          engagement de durée, et pourrez partir quand vous le voudrez.
+        </p>
+        <img
+          class="img-border"
+          src="./assets/images/annexx-boxes.webp"
+          alt="images des boxs"
+          width="400"
+        />
+      </div>
+    </article>
 
-    <!-- Boxes in toulouse -->
-    <div>
-      <h3>Nos boxs à Toulouse</h3>
+    <article id="card-main-container">
+      <div id="card-main-container-title">
+        <h3>Nos boxs à Toulouse</h3>
+      </div>
 
       <!-- Boxs cards -->
       <div class="card-container">
         <div class="card">
-          <p>Garde Meubles Toulouse Sud</p>
+          <div class="card-title">
+            <img
+              src="./assets/images/box.svg"
+              alt="image d'une boite"
+              width="30px"
+            />
+            <p>Garde Meubles Toulouse Sud</p>
+          </div>
 
           <p>2 Avenue des Crêtes 31520 RAMONVILLE St AGNE</p>
 
@@ -103,7 +118,14 @@
         </div>
 
         <div class="card">
-          <p>Garde Meubles Toulouse Nord-Est</p>
+          <div class="card-title">
+            <img
+              src="./assets/images/box.svg"
+              alt="image d'une boite"
+              width="30px"
+            />
+            <p>Garde Meubles Toulouse Nord-Est</p>
+          </div>
 
           <p>243 Route d'Albi 31200 TOULOUSE</p>
 
@@ -117,7 +139,14 @@
 
       <div class="card-container">
         <div class="card">
-          <p>Garde Meubles Toulouse Université</p>
+          <div class="card-title">
+            <img
+              src="./assets/images/box.svg"
+              alt="image d'une boite"
+              width="30px"
+            />
+            <p>Garde Meubles Toulouse Université</p>
+          </div>
           <p>70 Rue Jacques Babinet 31100 TOULOUSE</p>
           <p>Tél. 05 34 60 31 10</p>
           <p>
@@ -126,7 +155,15 @@
         </div>
 
         <div class="card">
-          <p>Garde Meubles Toulouse Ouest</p>
+          <div class="card-title">
+            <img
+              src="./assets/images/box.svg"
+              alt="image d'une boite"
+              width="30px"
+            />
+            <p>Garde Meubles Toulouse Ouest</p>
+          </div>
+
           <p>4 Rue de Caulet 31300 TOULOUSE</p>
           <p>Tél. 05 34 55 19 18</p>
           <p>
@@ -134,6 +171,9 @@
           </p>
         </div>
       </div>
-    </div>
+    </article>
+    <footer>
+      
+    </footer>
   </body>
 </html>
