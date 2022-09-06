@@ -7,13 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Mathieu CAUQUIL" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <script src="jquery-3.6.0.min.js"></script>
     <!-- Image by <a href=" https://www.vectorportal.com" >Vectorportal.com</a>,  <a class="external text" href="https://creativecommons.org/licenses/by/4.0/" >CC BY</a> -->
     <title>Annexx</title>
   </head>
   <body>
     <!-- Header -->
     <header>
-      <img src="./assets/images/padlock.svg" alt="cadenas" width="70px">
+      <img src="./assets/images/padlock.svg" alt="cadenas" width="70px" />
       <div id="header">
         <h1>Annexx</h1>
         <h2>Mon box sécurisé</h2>
@@ -35,7 +41,7 @@
           alt="image d'une flèche"
           width="40px"
         />
-        <form action="./api/postal-code.php" method="post">
+        <form method="post">
           <input
             type="text"
             name="postal-code"
@@ -91,15 +97,20 @@
       </div>
     </article>
 
-    <article id="card-main-container">
-      <div id="card-main-container-title">
-        <h3>Nos boxs à Toulouse</h3>
+    <article id="boxes-main-container">
+      <div id="img-responsive">
+        <img
+          src="./assets/images/box.svg"
+          alt="image d'une boite"
+          width="30px"
+        />
+        <h3 id="boxes-main-container-title">Nos boxs à Toulouse</h3>
       </div>
 
-      <!-- Boxs cards -->
-      <div class="card-container">
-        <div class="card">
-          <div class="card-title">
+      <!-- Boxs boxess -->
+      <div class="boxes-container">
+        <div class="boxes">
+          <div class="boxes-title">
             <img
               src="./assets/images/box.svg"
               alt="image d'une boite"
@@ -117,8 +128,8 @@
           </p>
         </div>
 
-        <div class="card">
-          <div class="card-title">
+        <div class="boxes">
+          <div class="boxes-title">
             <img
               src="./assets/images/box.svg"
               alt="image d'une boite"
@@ -137,9 +148,9 @@
         </div>
       </div>
 
-      <div class="card-container">
-        <div class="card">
-          <div class="card-title">
+      <div class="boxes-container">
+        <div class="boxes">
+          <div class="boxes-title">
             <img
               src="./assets/images/box.svg"
               alt="image d'une boite"
@@ -154,8 +165,8 @@
           </p>
         </div>
 
-        <div class="card">
-          <div class="card-title">
+        <div class="boxes">
+          <div class="boxes-title">
             <img
               src="./assets/images/box.svg"
               alt="image d'une boite"
@@ -173,7 +184,38 @@
       </div>
     </article>
     <footer>
-      
+      <p id="footer-title">Nous sommes également présents à</p>
+      <div id="cities-list">
+        <ul>
+          <li>TOULOUSE</li>
+          <li>BORDEAUX</li>
+          <li>LYON</li>
+          <li>PARIS</li>
+          <li>MARSEILLE</li>
+          <li>NANTES</li>
+          <li>PERPIGNAN</li>
+        </ul>
+        <ul>
+          <li>NICE</li>
+          <li>MONTPELLIER</li>
+          <li>PAU</li>
+          <li>ST-ETIENNE</li>
+          <li>GRENOBLE</li>
+          <li>TOULON</li>
+          <li>ORLEANS</li>
+        </ul>
+      </div>
+      <p>TOULOUSE SOLUTION DE SELF-STOCKAGE &copy; Mathieu CAUQUIL - 2022</p>
     </footer>
+
+    <script type="text/javascript">
+      // $(document).ready(function () {
+        $("form-button").click((e) => {
+          e.preventDefault();
+          var value = $(this).val();
+          console.log("Test", value);
+        });
+      // });
+    </script>
   </body>
 </html>
