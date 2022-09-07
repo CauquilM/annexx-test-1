@@ -1,3 +1,10 @@
+<?php 
+  if (isset($_POST["postalCode"])) {
+    echo $_POST["postalCode"];
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -12,7 +19,6 @@
       href="./assets/images/favicon.ico"
       type="image/x-icon"
     />
-    <script src="jquery-3.6.0.min.js"></script>
     <!-- Image by <a href=" https://www.vectorportal.com" >Vectorportal.com</a>,  <a class="external text" href="https://creativecommons.org/licenses/by/4.0/" >CC BY</a> -->
     <title>Annexx</title>
   </head>
@@ -41,7 +47,7 @@
           alt="image d'une flèche"
           width="40px"
         />
-        <form method="post">
+        <form method="post" id="form-ajax">
           <input
             type="text"
             name="postal-code"
@@ -52,6 +58,26 @@
         </form>
       </div>
     </div>
+
+    <article id="response-responsive">
+      <div id="response">
+      <p>Le box le plus près de chez vous</p>
+      <div class="boxes-title">
+            <img
+              src="./assets/images/box.svg"
+              alt="image d'une boite"
+              width="30px"
+            />
+            <p id="response-city"></p>
+          </div>
+        
+        
+        <p id="response-adress"></p>
+        <p id="response-phone"></p>
+        <p id="response-hours"></p>
+      </div>
+    </article>
+
 
     <article>
       <!-- First row -->
@@ -207,15 +233,57 @@
       </div>
       <p>TOULOUSE SOLUTION DE SELF-STOCKAGE &copy; Mathieu CAUQUIL - 2022</p>
     </footer>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
-      // $(document).ready(function () {
-        $("form-button").click((e) => {
-          e.preventDefault();
-          var value = $(this).val();
-          console.log("Test", value);
-        });
-      // });
+
+$(document).ready(function(){
+      $('#form-ajax').on("submit", (e) => {
+        e.preventDefault();
+         var postalCode = $('#postal-code').val();
+
+         $.ajax({
+            type: 'post',
+            data: {ajax: 1,postalCode: postalCode},
+            success: function(response){
+              $("#response").show();
+
+              switch (response.toLowerCase()) {
+                case "toulouse sud":
+                  $('#response-city').text("Garde Meubles Toulouse Sud");
+                  $('#response-adress').text("2 Avenue des Crêtes 31520 RAMONVILLE St AGNE");
+                  $('#response-phone').text("Tél. 05 62 19 19 79");
+                  $('#response-hours').text("Horaires des bureaux: Lun-Ven de 9h-12h30; 13h15-17h30, Sam 9h13h.");
+                  break;
+                case "toulouse nord-est":
+                  $('#response-city').text("Garde Meubles Toulouse Nord-Est");
+                  $('#response-adress').text("243 Route d'Albi 31200 TOULOUSE");
+                  $('#response-phone').text("Tél. 05 61 11 03 53");
+                  $('#response-hours').text("Horaires des bureaux: Lun-Ven de 9h-12h30; 13h15-17h30, Sam 9h13h.");
+                  break;
+                case "toulouse université":
+                  $('#response-city').text("Garde Meubles Toulouse Université");
+                  $('#response-adress').text("70 Rue Jacques Babinet 31100 TOULOUSE");
+                  $('#response-phone').text("Tél. 05 34 60 31 10");
+                  $('#response-hours').text("Horaires des bureaux: Lun-Ven de 9h-12h30; 13h15-17h30, Sam 9h13h.");
+                  break;
+                case "toulouse ouest":
+                  $('#response-city').text("Garde Meubles Toulouse Ouest");
+                  $('#response-adress').text("4 Rue de Caulet 31300 TOULOUSE");
+                  $('#response-phone').text("Tél. 05 34 55 19 18");
+                  $('#response-hours').text("Horaires des bureaux: Lun-Ven de 9h-12h30; 13h15-17h30, Sam 9h13h.");
+                  break;
+              
+                default:
+                $('#response-city').text("Aie... Une erreur est arrivée, tapez à nouveau votre ville");
+                  break;
+              }
+              
+              // console.log(response);
+              //  $('#response').text('postalCode : ' + response);
+            }
+         });
+      });
+   });
     </script>
   </body>
 </html>

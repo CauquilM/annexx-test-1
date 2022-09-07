@@ -64,6 +64,25 @@ header {
   padding: 15px 10px 17px 40px;
 }
 
+#response-responsive {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+#response{
+  display: none;
+  color: white;
+  width: 600px;
+  height: 300px;
+  background: brown;
+}
+
+#response-city{
+  font-size: 1.3em;
+}
+
 .informations-row {
   display: flex;
   justify-content: center;
@@ -243,6 +262,12 @@ li {
     font-size: 12px;
   }
 
+  #response{
+    width: 450px;
+    height: 300px;
+    background: brown;
+  }
+
   #boxes-main-container-title {
     font-size: 1.4em;
   }
@@ -299,6 +324,20 @@ li {
     height: 35px;
     font-size: 12px;
     padding: 5px 10px 5px 30px;
+  }
+
+  #response{
+    width: 350px;
+    height: 300px;
+    background: brown;
+  }
+
+  #response-city{
+    font-size: 1em;
+  }
+
+  #response > p{
+    font-size: 0.8em;
   }
 
   #boxes-main-container-title {
@@ -366,5 +405,26 @@ li {
 
   footer {
     font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  #response{
+    width: 300px;
+    height: 25  0px;
+    background: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #response-city{
+    font-size: 0.9em;
+  }
+
+  #response > p{
+    font-size: 0.7em;
+    width: 90%;
   }
 }
