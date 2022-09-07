@@ -1,9 +1,4 @@
-<?php 
-  if (isset($_POST["postalCode"])) {
-    echo $_POST["postalCode"];
-    exit;
-  }
-?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,7 +42,7 @@
           alt="image d'une flèche"
           width="40px"
         />
-        <form method="post" id="form-ajax">
+        <form action="api/logic.php" method="post" id="form-ajax">
           <input
             type="text"
             name="postal-code"
@@ -242,9 +237,11 @@ $(document).ready(function(){
          var postalCode = $('#postal-code').val();
 
          $.ajax({
+            url: "api/logic.php",
             type: 'post',
             data: {ajax: 1,postalCode: postalCode},
             success: function(response){
+              console.log(response);
               $("#response").show();
 
               switch (response.toLowerCase()) {
